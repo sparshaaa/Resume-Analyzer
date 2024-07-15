@@ -1,4 +1,3 @@
-# Resume-Analyzer
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,11 +73,12 @@
 <h3>Steps</h3>
 <pre>
 <code>
-1. Clone the repository:
-    git clone https://github.com/yourusername/resume-category-prediction.git
+1. Download the project files to your local machine.
+
+2. Navigate to the project directory:
     cd resume-category-prediction
 
-2. Install the required packages:
+3. Install the required packages:
     pip install -r requirements.txt
 </code>
 </pre>
@@ -112,6 +112,31 @@ resume-category-prediction/
 <h3>Main Application (<code>app.py</code>)</h3>
 <ul>
     <li><strong>Imports and Downloads</strong>: Import necessary libraries and download required NLTK data.</li>
+    <pre><code>import streamlit as st
+import pandas as pd
+import numpy as np
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report
+from sklearn.utils.class_weight import compute_class_weight
+from PyPDF2 import PdfReader
+import io
+import spacy
+
+# Download NLTK data
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+# Load spaCy model for NER
+import en_core_web_sm
+nlp = en_core_web_sm.load()
+    </code></pre>
     <li><strong>Preprocessing Functions</strong>:
         <ul>
             <li><code>preprocess_text(text)</code>: Tokenizes, removes stopwords, and lemmatizes the text.</li>
